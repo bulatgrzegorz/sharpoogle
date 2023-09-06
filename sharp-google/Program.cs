@@ -49,18 +49,19 @@ internal class InputQueryWalker : CSharpSyntaxWalker
 
     public override void VisitInvocationExpression(InvocationExpressionSyntax node)
     {
-        string returnType = null!;
+        var childNodes = node.ChildNodes().ToList();
+        
+        //First node should contain identifier of return type (it could be PredefinedType/GenericName/IdentifierName/...)
+        var returnType = childNodes[0].ToString();
         var arguments = Array.Empty<string>();
-        foreach (var childNode in node.ChildNodes())
-        {
-            if (childNode.IsKind(SyntaxKind.PredefinedType))
-            {
-                returnType = childNode.ToString();
-            }
 
+        foreach (var childNode in childNodes)
+        {
+            Console.WriteLine($"chile note: {childNode.Kind()}, i: {childNode}");
+            
             if (childNode.IsKind(SyntaxKind.ArgumentList))
             {
-                arguments = ((ArgumentListSyntax)childNode).Arguments.Select(x => x.ToString()).ToArray();
+                arguments = ((ArgumentListSyntax)childNode).Arguments.Select(x => x.ToString().Trim()).ToArray();
             }
         }
 
@@ -82,7 +83,7 @@ internal class MethodWalker : CSharpSyntaxWalker
         {
             Name = node.Identifier.ToString(),
             ReturnType = node.ReturnType.ToString(),
-            Arguments = node.ParameterList.Parameters.Select(x => x.Type?.ToString()).Where(x => x != null).ToArray()!,
+            Arguments = node.ParameterList.Parameters.Select(x => x.Type?.ToString().Trim()).Where(x => x != null).ToArray()!,
             Location = (location.Path, location.StartLinePosition.Line, location.StartLinePosition.Character)
         });
         
@@ -97,7 +98,7 @@ internal class MethodWalker : CSharpSyntaxWalker
         {
             Name = node.Identifier.ToString(),
             ReturnType = node.ReturnType.ToString(),
-            Arguments = node.ParameterList.Parameters.Select(x => x.Type?.ToString()).Where(x => x != null).ToArray()!,
+            Arguments = node.ParameterList.Parameters.Select(x => x.Type?.ToString().Trim()).Where(x => x != null).ToArray()!,
             Location = (location.Path, location.StartLinePosition.Line, location.StartLinePosition.Character)
         });
         
