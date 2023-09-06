@@ -7,8 +7,14 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <PackAsTool>true</PackAsTool>
-    <ToolCommandName>sharp-google</ToolCommandName>
+    <ToolCommandName>sharpoogle</ToolCommandName>
     <PackageOutputPath>./nupkg</PackageOutputPath>
+
+    <PackageId>sharpoogle</PackageId>
+    <Authors>Grzegorz Bułat</Authors>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageVersion>1.0.0</PackageVersion>
+    <Description>Sharpoogle is a search engine for C# language, which allows you to find method by it's signature. Inspirder by Hoogle and Tscoding work.</Description>
   </PropertyGroup>
 
   <ItemGroup>
