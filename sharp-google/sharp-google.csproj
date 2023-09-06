@@ -13,7 +13,7 @@
     <PackageId>sharpoogle</PackageId>
     <Authors>Grzegorz Bułat</Authors>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageVersion>1.0.0</PackageVersion>
+    <PackageVersion>1.0.1</PackageVersion>
     <Description>Sharpoogle is a search engine for C# language, which allows you to find method by it's signature. Inspirder by Hoogle and Tscoding work.</Description>
   </PropertyGroup>
 
