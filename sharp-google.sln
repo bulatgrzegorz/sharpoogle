@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sharp-google", "sharp-google\sharp-google.csproj", "{BBA2C049-FE0F-4851-A48C-CA73D84746EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sharp-google.tests", "sharp-google.tests\sharp-google.tests.csproj", "{1A0D788A-F2BD-407C-BF0B-B09E9E7B83AD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BBA2C049-FE0F-4851-A48C-CA73D84746EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBA2C049-FE0F-4851-A48C-CA73D84746EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBA2C049-FE0F-4851-A48C-CA73D84746EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBA2C049-FE0F-4851-A48C-CA73D84746EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A0D788A-F2BD-407C-BF0B-B09E9E7B83AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A0D788A-F2BD-407C-BF0B-B09E9E7B83AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A0D788A-F2BD-407C-BF0B-B09E9E7B83AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A0D788A-F2BD-407C-BF0B-B09E9E7B83AD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
