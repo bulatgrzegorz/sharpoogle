@@ -40,9 +40,16 @@ internal class InputQueryWalker : CSharpSyntaxWalker
 {
     public QueryDefinition? QueryDefinition { get; private set; }
     
+    public override void VisitGenericName(GenericNameSyntax node)
+    {
+        QueryDefinition ??= new QueryDefinition(node.ToString(), Array.Empty<string>());
+        
+        base.VisitGenericName(node);
+    }
+
     public override void VisitLocalDeclarationStatement(LocalDeclarationStatementSyntax node)
     {
-        QueryDefinition = new QueryDefinition(node.ToString(), Array.Empty<string>());
+        QueryDefinition ??= new QueryDefinition(node.ToString(), Array.Empty<string>());
         
         base.VisitLocalDeclarationStatement(node);
     }
@@ -57,8 +64,6 @@ internal class InputQueryWalker : CSharpSyntaxWalker
 
         foreach (var childNode in childNodes)
         {
-            Console.WriteLine($"chile note: {childNode.Kind()}, i: {childNode}");
-            
             if (childNode.IsKind(SyntaxKind.ArgumentList))
             {
                 arguments = ((ArgumentListSyntax)childNode).Arguments.Select(x => x.ToString().Trim()).ToArray();

@@ -37,6 +37,32 @@ public class WalkerTests
     }
     
     [Theory]
+    [InlineData("Task<int>")]
+    public void InputQueryWalker_EmptyArguments_GenericReturn_WillBeParsedWell(string query)
+    {
+        var inputWalker = new InputQueryWalker();
+        inputWalker.Visit(CSharpSyntaxTree.ParseText(query).GetRoot());
+
+        Assert.NotNull(inputWalker.QueryDefinition);
+        Assert.Equal("Task<int>", inputWalker.QueryDefinition.Value.ReturnType);
+        
+        Assert.Empty(inputWalker.QueryDefinition.Value.Arguments);
+    }
+    
+    [Theory]
+    [InlineData("someClass")]
+    public void InputQueryWalker_EmptyArguments_CustomReturnType_WillBeParsedWell(string query)
+    {
+        var inputWalker = new InputQueryWalker();
+        inputWalker.Visit(CSharpSyntaxTree.ParseText(query).GetRoot());
+
+        Assert.NotNull(inputWalker.QueryDefinition);
+        Assert.Equal("someClass", inputWalker.QueryDefinition.Value.ReturnType);
+        
+        Assert.Empty(inputWalker.QueryDefinition.Value.Arguments);
+    }
+    
+    [Theory]
     [InlineData("Task<int>(ISomeInterface<IOtherOne<bool>>)")]
     public void InputQueryWalker_GenericTypes_WillBeParsedWell(string query)
     {
