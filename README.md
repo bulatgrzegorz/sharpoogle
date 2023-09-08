@@ -8,7 +8,7 @@ It is using [roslyn](https://github.com/dotnet/roslyn) as c# parser for both inp
 Sharpoogle is avaiable on nuget: https://www.nuget.org/packages/sharpoogle/ as dotnet tool.
 You can install it by simply running:
 ```cmd
-dotnet tool install --global sharpoogle --version 1.0.0
+dotnet tool install --global sharpoogle
 ```
 
 ## Usage
